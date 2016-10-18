@@ -413,7 +413,7 @@ class String extends Object implements \Serializable
     }
 
     /**
-     * md5 encryptes the string and returns the
+     * md5 encrypts the string and returns the
      * instance.
      *
      * @return \AppserverIo\Lang\String The instance md5 encrypted
@@ -422,6 +422,40 @@ class String extends Object implements \Serializable
     {
         return $this->init(md5($this->stringValue()));
     }
+
+    /**
+     * sha1 encrypts the string and returns the
+     * instance.
+     *
+     * @return \AppserverIo\Lang\String The instance sha1 encrypted
+     */
+    public function sha1($salt = null)
+    {
+        return $this->init(hash('sha1', $salt . $this->stringValue()));
+    }
+
+    /**
+     * sha256 encrypts the string and returns the
+     * instance.
+     *
+     * @return \AppserverIo\Lang\String The instance sha256 encrypted
+     */
+    public function sha256($salt = null)
+    {
+        return $this->init(hash('sha256', $salt . $this->stringValue()));
+    }
+
+    /**
+     * sha512 encrypts the string and returns the
+     * instance.
+     *
+     * @return \AppserverIo\Lang\String The instance sha512 encrypted
+     */
+    public function sha512($salt = null)
+    {
+        return $this->init(hash('sha512', $salt . $this->stringValue()));
+    }
+
 
     /**
      * Converts the string value to upper case

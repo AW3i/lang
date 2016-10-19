@@ -416,16 +416,20 @@ class String extends Object implements \Serializable
      * md5 encrypts the string and returns the
      * instance.
      *
+     * @param string $salt the salt to prepend to the stringValue
+     *
      * @return \AppserverIo\Lang\String The instance md5 encrypted
      */
-    public function md5()
+    public function md5($salt = null)
     {
-        return $this->init(md5($this->stringValue()));
+        return $this->init(md5($salt . $this->stringValue()));
     }
 
     /**
      * sha1 encrypts the string and returns the
      * instance.
+     *
+     * @param string $salt the salt to prepend to the stringValue
      *
      * @return \AppserverIo\Lang\String The instance sha1 encrypted
      */
@@ -438,6 +442,8 @@ class String extends Object implements \Serializable
      * sha256 encrypts the string and returns the
      * instance.
      *
+     * @param string $salt the salt to prepend to the stringValue
+     *
      * @return \AppserverIo\Lang\String The instance sha256 encrypted
      */
     public function sha256($salt = null)
@@ -448,6 +454,8 @@ class String extends Object implements \Serializable
     /**
      * sha512 encrypts the string and returns the
      * instance.
+     *
+     * @param string $salt the salt to prepend to the stringValue
      *
      * @return \AppserverIo\Lang\String The instance sha512 encrypted
      */

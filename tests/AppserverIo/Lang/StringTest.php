@@ -162,4 +162,43 @@ class StringTest extends \PHPUnit_Framework_TestCase
         // check that String was successfully concatenated
         $this->assertTrue($string->equals(new String($string)));
     }
+
+    /**
+     * This test checks the String's sha1() method.
+     *
+     * @return void
+     */
+    public function testSha1()
+    {
+        // initialize a new String instance
+        $string = new String('Mustermann');
+        // check that String's sha1 summs equals
+        $this->assertTrue($string->sha1()->equals(new String(hash('sha1' , 'Mustermann'))));
+    }
+
+    /**
+     * This test checks the String's sha256() method.
+     *
+     * @return void
+     */
+    public function testSha256()
+    {
+        // initialize a new String instance
+        $string = new String('Mustermann');
+        // check that String's sha256 summs equals
+        $this->assertTrue($string->sha256()->equals(new String(hash('sha256' , 'Mustermann'))));
+    }
+
+    /**
+     * This test checks the String's sha512() method.
+     *
+     * @return void
+     */
+    public function testSha512()
+    {
+        // initialize a new String instance
+        $string = new String('Mustermann');
+        // check that String's sha512 summs equals
+        $this->assertTrue($string->sha512()->equals(new String(hash('sha512' , 'Mustermann'))));
+    }
 }
